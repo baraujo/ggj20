@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Wheel
   - Lever
+  - Obstacle
   layers:
   - Default
   - TransparentFX

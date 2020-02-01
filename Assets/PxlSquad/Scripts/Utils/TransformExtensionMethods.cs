@@ -22,4 +22,22 @@ public static class TransformExtensionMethods {
         current.z = value;
         transform.position = current;
     }
+    
+    public static void addPositionX(this Transform transform, float value) {
+        var current = transform.position;
+        current.x += value;
+        transform.position = current;
+    }
+
+    public static void addPositionY(this Transform transform, float value) {
+        var current = transform.position;
+        current.y += value;
+        transform.position = current;
+    }
+
+    public static void addPositionZ(this Transform transform, float value) {
+        var current = transform.position;
+        current.z += value;
+        transform.position = current;
+    }
 }
