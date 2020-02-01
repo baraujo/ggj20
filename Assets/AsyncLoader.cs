@@ -1,11 +1,12 @@
 ﻿using UnityEngine;
-using UnityEngine.AddressableAssets;
+using UnityEngine.SceneManagement;
+
 
 public class AsyncLoader : MonoBehaviour
 {
-    public AssetReference sceneReference;
+    public string sceneReference;
     private void Start()
     {
-        Addressables.LoadSceneAsync(sceneReference);
+        SceneManager.LoadSceneAsync(sceneReference);
     }
 }
