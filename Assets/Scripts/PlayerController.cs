@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Controls;
 public class PlayerController : MonoBehaviour
 {
     // Movement data
-    [SerializeField] private float m_MoveSpeed;
+    public float moveSpeed;
     private Vector3 m_Velocity;
     private Vector3 m_VelocityRef;
     private Vector2 m_NormalizedVelocity;
@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     private WheelController m_CurrentWheelController = null;
     private WallController m_CurrentWallController = null;
 
+    public bool isRunning;
+        
     private void Awake()
     {
         m_Rigidbody = GetComponent<Rigidbody2D>();
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!isRunning) return;
         //var newPosition = Vector3.SmoothDamp(transform.position, transform.position + m_Velocity * Time.fixedDeltaTime, ref m_VelocityRef, 0.05f);
         m_Rigidbody.MovePosition(transform.position + m_Velocity * Time.fixedDeltaTime);
     }
@@ -50,13 +53,15 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext value)
     {
-        m_NormalizedVelocity = value.ReadValue<Vector2>() * m_MoveSpeed;
+        if (!isRunning) return;
+        m_NormalizedVelocity = value.ReadValue<Vector2>() * moveSpeed;
         m_Velocity.x = m_NormalizedVelocity.x;
         m_Velocity.y = m_NormalizedVelocity.y;
     }
 
     public void Action(InputAction.CallbackContext value)
     {
+        if (!isRunning) return;
         if (!value.performed) return;
         if (!(value.control is ButtonControl button)) return;
 
