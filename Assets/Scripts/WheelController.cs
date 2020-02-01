@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 public class WheelController : MonoBehaviour
 {
@@ -16,29 +12,32 @@ public class WheelController : MonoBehaviour
     
     [HideInInspector]
     public PlayerController currentPlayer;
-    public Sprite intactSprite, damagedSprite;
+    public GameObject intactSprite, damagedSprite;
     public float repairRate;
     public bool repairInProgress;
     
-    [SerializeField] private WheelState m_CurrentState;
-    [SerializeField] private float m_damagePercentage;
+    [Range(0f, 100f)]
+    public float damagePercentage;
     
+    [SerializeField] private WheelState m_CurrentState;
+
     public WheelState CurrentState
     {
         get => m_CurrentState;
         set { m_CurrentState = value; UpdateState(); }
     }
 
-    private SpriteRenderer m_Renderer;
-
-    private void Start()
-    {
-        UpdateState(); 
-    }
+    private SpriteRenderer m_IntactSpriteRenderer;
+    private static readonly int Fill = Shader.PropertyToID("_Fill");
 
     private void Awake()
     {
-        m_Renderer = GetComponent<SpriteRenderer>();
+        m_IntactSpriteRenderer = intactSprite.GetComponent<SpriteRenderer>();
+    }
+   
+    private void Start()
+    {
+        UpdateState(); 
     }
 
     private void Update()
@@ -47,28 +46,26 @@ public class WheelController : MonoBehaviour
         {
             PerformRepair(Time.deltaTime);
         }
+        UpdateIntactSpriteFill(damagePercentage / 100f);
     }
-
+    
+    private void UpdateIntactSpriteFill(float value)
+    {
+        m_IntactSpriteRenderer.sharedMaterial.SetFloat(Fill, 1 - value);
+    }
+    
     [ContextMenu("Update sprite")]
     public void UpdateState()
     {
-        if (m_CurrentState == WheelState.Intact)
-        {
-            m_Renderer.sprite = intactSprite;
-            m_damagePercentage = 0;
-        }
-        else
-        {
-            m_Renderer.sprite = damagedSprite;
-            m_damagePercentage = 100;
-        }
+        damagePercentage = m_CurrentState == WheelState.Intact ? 0 : 100;
+        UpdateIntactSpriteFill(damagePercentage / 100f);
     }
 
     private void PerformRepair(float repairAmount)
     {
-        if (m_damagePercentage >= 0)
+        if (damagePercentage >= 0)
         {
-            m_damagePercentage -= repairRate * repairAmount;
+            damagePercentage -= repairRate * repairAmount;
         }
         else if (m_CurrentState == WheelState.Damaged)
         {
