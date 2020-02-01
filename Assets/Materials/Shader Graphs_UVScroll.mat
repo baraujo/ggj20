@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Shader Graphs_WheelFiller2
-  m_Shader: {fileID: -6465566751694194690, guid: 99bd1468573860942a4f8208e8632263,
+  m_Name: Shader Graphs_UVScroll
+  m_Shader: {fileID: -6465566751694194690, guid: 72fdad2052f78a145ab32336995b404b,
     type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
@@ -20,15 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_8ED0BBBD:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _MainTex:
-        m_Texture: {fileID: 0}
+    - Texture2D_FDDA55D:
+        m_Texture: {fileID: 2800000, guid: 9a19de6a432d6824f83b87bc055cdb4e, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_D6A9F71C: 1
-    - _Fill: 1
+    - _ScrollSpeed: 0.5
     m_Colors: []

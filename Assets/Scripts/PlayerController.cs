@@ -15,6 +15,8 @@ public class PlayerController : MonoBehaviour
     // Collision data
     private WheelController m_CurrentWheelController = null;
     private WallController m_CurrentWallController = null;
+    private LeverController m_CurrentLeverController = null;
+    private bool m_LeverInUse = false;
 
     public bool isRunning;
         
@@ -32,22 +34,43 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Wheel")) return;
-        m_CurrentWheelController = other.GetComponent<WheelController>();
-        if (m_CurrentWheelController.currentPlayer == null)
+        if (other.CompareTag("Wheel"))
         {
-            m_CurrentWheelController.currentPlayer = this;
+            m_CurrentWheelController = other.GetComponent<WheelController>();
+            if (m_CurrentWheelController.currentPlayer == null)
+            {
+                m_CurrentWheelController.currentPlayer = this;
+            }
+        }
+
+        if (other.CompareTag("Lever"))
+        {
+            m_CurrentLeverController = other.GetComponent<LeverController>();
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Wheel")) return;
-        if (m_CurrentWheelController != null)
-        { 
-            m_CurrentWheelController.repairInProgress = true;
+        if (other.CompareTag("Wheel"))
+        {
+            if (m_CurrentWheelController != null)
+            {
+                m_CurrentWheelController.repairInProgress = true;
+            }
+
+            m_CurrentWheelController = null;
         }
-        m_CurrentWheelController = null;
+
+        if (other.CompareTag("Lever"))
+        {
+            if (m_LeverInUse)
+            {
+                m_CurrentLeverController.leverSpeed--;
+                m_LeverInUse = false;
+            }
+
+            m_CurrentLeverController = null;
+        }
     }
 
     public void Move(InputAction.CallbackContext value)
@@ -71,6 +94,27 @@ public class PlayerController : MonoBehaviour
         else if (m_CurrentWallController != null)
         {
             ProcessWallAction(button.isPressed);
+        }
+        else if (m_CurrentLeverController != null)
+        {
+            ProcessLeverAction(button.isPressed);
+        }
+    }
+
+    private void ProcessLeverAction(bool buttonIsPressed)
+    {
+        if (buttonIsPressed)
+        {
+            m_CurrentLeverController.leverSpeed++;
+            m_LeverInUse = true;
+        }
+        else
+        {
+            if(m_CurrentLeverController.leverSpeed > 0)
+            {
+                m_CurrentLeverController.leverSpeed--;
+            }
+            m_LeverInUse = false;
         }
     }
 
