@@ -33,8 +33,6 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Wheel")) return;
-        
-        Debug.Log($"{name} Entered wheel collider {other.name}");
         m_CurrentWheelController = other.GetComponent<WheelController>();
         if (m_CurrentWheelController.currentPlayer == null)
         {
@@ -45,9 +43,10 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D other)
     {
         if (!other.CompareTag("Wheel")) return;
-        
-        Debug.Log($"{name} left wheel collider {other.name}");
-        // TODO: Stop action on wheel if any
+        if (m_CurrentWheelController != null)
+        { 
+            m_CurrentWheelController.repairInProgress = true;
+        }
         m_CurrentWheelController = null;
     }
 
@@ -86,7 +85,7 @@ public class PlayerController : MonoBehaviour
             else if(m_CurrentWheelController.currentPlayer == this)
             {
                 Debug.Log($"{name} started using action on wheel collider {m_CurrentWheelController.name}");  
-                // TODO: perform wheel action
+                m_CurrentWheelController.repairInProgress = true;
             }
             else
             {
@@ -102,7 +101,7 @@ public class PlayerController : MonoBehaviour
             else if(m_CurrentWheelController.currentPlayer == this)
             {
                 Debug.Log($"{name} stopped using action on wheel collider {m_CurrentWheelController.name}");
-                // TODO: stop wheel action
+                m_CurrentWheelController.repairInProgress = false;
             }
             else
             {

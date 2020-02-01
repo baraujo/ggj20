@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using PxlSquad;
 using UnityEngine;
@@ -12,7 +13,12 @@ public class GameStateManager : MonoBehaviour
     public Canvas gameStartCanvas;
 
     private bool m_IsRunning;
-    
+
+    private void Start()
+    {
+        StartGame();
+    }
+
     public void StartGame()
     {
         if (m_IsRunning) return;

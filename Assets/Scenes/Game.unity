@@ -486,25 +486,15 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2069869829652298264, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2069869829652298264, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_ReferenceResolution.x
-      value: 1024
-      objectReference: {fileID: 0}
-    - target: {fileID: 2069869829652298264, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_ReferenceResolution.y
-      value: 768
-      objectReference: {fileID: 0}
     - target: {fileID: 2069869829652298265, guid: d92956c5606df3645bafcf509b62f350,
         type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2069869829652298270, guid: d92956c5606df3645bafcf509b62f350,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2069869830499431376, guid: d92956c5606df3645bafcf509b62f350,
         type: 3}
@@ -575,6 +565,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 243516925864896650, guid: 62939ce5d45a78e4eb463e19b94d81e1,
+        type: 3}
+      propertyPath: m_CurrentState
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2841937496330356984, guid: 62939ce5d45a78e4eb463e19b94d81e1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -634,6 +629,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Environment
+      objectReference: {fileID: 0}
+    - target: {fileID: 6801602626115425771, guid: 62939ce5d45a78e4eb463e19b94d81e1,
+        type: 3}
+      propertyPath: m_CurrentState
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 62939ce5d45a78e4eb463e19b94d81e1, type: 3}

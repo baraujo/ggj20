@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6702764545976871176}
+  - component: {fileID: 8724794732269525086}
   - component: {fileID: 6702764545976871177}
   - component: {fileID: 6763897712168142657}
-  - component: {fileID: 8724794732269525086}
   m_Layer: 0
   m_Name: Wheel
   m_TagString: Untagged
@@ -33,6 +33,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8724794732269525086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702764545976871178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b3000bb7194c554da8e0af05b81633f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentPlayer: {fileID: 0}
+  intactSprite: {fileID: 21300000, guid: e8b735beb45e4b84485855dce812904c, type: 3}
+  damagedSprite: {fileID: 21300000, guid: 4a6fa6c4b2176414c9a61df3910dee67, type: 3}
+  repairRate: 20
+  repairInProgress: 0
+  m_CurrentState: 0
+  m_damagePercentage: 0
 --- !u!212 &6702764545976871177
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109,15 +128,3 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &8724794732269525086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6702764545976871178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b3000bb7194c554da8e0af05b81633f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
