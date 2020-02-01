@@ -27,7 +27,7 @@
                     "id": "a398502a-c604-4216-97e6-6c665b5c250c",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
                 },
                 {
                     "name": "Action2",
@@ -35,7 +35,7 @@
                     "id": "c44bf567-c074-4e03-8896-c95ea55ee646",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Press"
+                    "interactions": "Press(behavior=2)"
                 }
             ],
             "bindings": [
