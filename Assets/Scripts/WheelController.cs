@@ -58,7 +58,7 @@ public class WheelController : MonoBehaviour
     public void UpdateState()
     {
         damagePercentage = m_CurrentState == WheelState.Intact ? 0 : 100;
-        UpdateIntactSpriteFill(damagePercentage / 100f);
+        //UpdateIntactSpriteFill(damagePercentage / 100f);
     }
 
     private void PerformRepair(float repairAmount)
@@ -73,4 +73,12 @@ public class WheelController : MonoBehaviour
             UpdateState();
         }
     }
+
+    public void TakeDamage(){
+        if(m_CurrentState == WheelState.Intact){
+            m_CurrentState = WheelState.Damaged;
+            UpdateState();
+        }
+    }
+
 }
