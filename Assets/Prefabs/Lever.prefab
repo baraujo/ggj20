@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 7149387247704885656}
   - component: {fileID: 2625313638999872401}
   - component: {fileID: 6530805198944019430}
+  - component: {fileID: 4902941907185857904}
   m_Layer: 0
   m_Name: Lever
   m_TagString: Lever
@@ -148,7 +149,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.34172517, y: -1.0832999}
+  m_Offset: {x: 1.7691582, y: -1.0457356}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -159,7 +160,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.0004673, y: 0.83197737}
+  m_Size: {x: 1.5646861, y: 1.3244834}
   m_EdgeRadius: 0
 --- !u!61 &6530805198944019430
 BoxCollider2D:
@@ -186,4 +187,30 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1.8047366}
+  m_EdgeRadius: 0
+--- !u!61 &4902941907185857904
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6197921912380071262}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.9521475, y: -1.0499095}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4979048, y: 1.3495266}
   m_EdgeRadius: 0
