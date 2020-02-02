@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
@@ -11,12 +12,15 @@ public class PlayerController : MonoBehaviour
     private Vector3 m_VelocityRef;
     private Vector2 m_NormalizedVelocity;
     private Rigidbody2D m_Rigidbody;
-    
+    private float m_CurrentLeverSpeed = 0;
+
     // Collision data
     private WheelController m_CurrentWheelController = null;
     private WallController m_CurrentWallController = null;
     private LeverController m_CurrentLeverController = null;
     private bool m_LeverInUse = false;
+
+    public UnityEvent OnPumpAction;
 
     public bool isRunning;
         
@@ -30,6 +34,18 @@ public class PlayerController : MonoBehaviour
         if (!isRunning) return;
         //var newPosition = Vector3.SmoothDamp(transform.position, transform.position + m_Velocity * Time.fixedDeltaTime, ref m_VelocityRef, 0.05f);
         m_Rigidbody.MovePosition(transform.position + m_Velocity * Time.fixedDeltaTime);
+    }
+
+    private void Update()
+    {
+        if (m_CurrentLeverSpeed > 0)
+        {
+            m_CurrentLeverSpeed -= Time.deltaTime;
+            if (m_CurrentLeverSpeed < 0)
+            {
+                m_CurrentLeverSpeed = 0;
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -55,7 +71,7 @@ public class PlayerController : MonoBehaviour
         {
             if (m_CurrentWheelController != null)
             {
-                m_CurrentWheelController.repairInProgress = true;
+                m_CurrentWheelController.repairInProgress = false;
             }
             m_CurrentWheelController = null;
         }
@@ -64,10 +80,13 @@ public class PlayerController : MonoBehaviour
         {
             if (m_LeverInUse)
             {
-                m_CurrentLeverController.leverSpeed--;
+                if (m_CurrentLeverSpeed <= 1.2f)
+                {
+                    m_CurrentLeverController.leverSpeed -= m_CurrentLeverSpeed;
+                    m_CurrentLeverSpeed = 0;
+                }
                 m_LeverInUse = false;
             }
-
             m_CurrentLeverController = null;
         }
     }
@@ -104,16 +123,13 @@ public class PlayerController : MonoBehaviour
     {
         if (buttonIsPressed)
         {
-            m_CurrentLeverController.leverSpeed++;
-            m_LeverInUse = true;
-        }
-        else
-        {
-            if(m_CurrentLeverController.leverSpeed > 0)
+            if(m_CurrentLeverSpeed < 1.2f)
             {
-                m_CurrentLeverController.leverSpeed--;
+                m_CurrentLeverSpeed += 0.1f;
+                m_CurrentLeverController.leverSpeed += 0.1f;
+                OnPumpAction.Invoke();
             }
-            m_LeverInUse = false;
+            m_LeverInUse = true;
         }
     }
 

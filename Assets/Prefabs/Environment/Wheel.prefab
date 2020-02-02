@@ -145,7 +145,7 @@ MonoBehaviour:
   currentPlayer: {fileID: 0}
   intactSprite: {fileID: 7026862587846497671}
   damagedSprite: {fileID: 3301437464933191702}
-  repairRate: 25
+  repairRate: 50
   repairInProgress: 0
   damagePercentage: 0
   m_CurrentState: 0
