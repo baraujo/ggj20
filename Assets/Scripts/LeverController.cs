@@ -9,13 +9,27 @@ public class LeverController : MonoBehaviour
     public float leverSpeed = 0;
     public float actualSpeed = 0;
     public SpriteRenderer m_Renderer;
-    public Sprite leftSide, RightSide;
-    
-    private float m_LastLeverSpeed = 0;
-
+    public Sprite leftSide, rightSide;
     private bool m_WhichSide = false;
+    private bool m_IsRunning = true;
 
+    
+    private void OnEnable()
+    {
+        MessagingManager.RegisterObserver("Victory", StopLever);
+        MessagingManager.RegisterObserver("GameOver", StopLever);
+    }
 
+    private void StopLever()
+    {
+        m_IsRunning = false;
+    }
+
+    private void OnDisable()
+    {
+        MessagingManager.DeregisterObserver("Victory", StopLever);
+        MessagingManager.DeregisterObserver("GameOver", StopLever);
+    }
     private void Awake()
     {
         m_Renderer = GetComponentInChildren<SpriteRenderer>();
@@ -23,16 +37,28 @@ public class LeverController : MonoBehaviour
 
     private void Update()
     {
-        MessagingManager<float>.SendMessage("LeverSpeedUpdated", leverSpeed);
-        leverSpeed -= Time.deltaTime / 2.5f;
-        if (leverSpeed < 0)
+        if (m_IsRunning)
         {
-            leverSpeed = 0;
+            leverSpeed -= Time.deltaTime / 2.5f;
+            if (leverSpeed < 0)
+            {
+                leverSpeed = 0;
+            }
         }
+        else
+        {
+            leverSpeed -= Time.deltaTime * 5;
+            if (leverSpeed < 0)
+            {
+                leverSpeed = 0;
+            }
+        }
+        MessagingManager<float>.SendMessage("LeverSpeedUpdated", leverSpeed);
     }
 
     public void ChangeSides()
     {
+        if (!m_IsRunning) return;
         if (m_WhichSide)
         {
             m_Renderer.sprite = leftSide;
@@ -40,7 +66,7 @@ public class LeverController : MonoBehaviour
         }
         else
         {
-            m_Renderer.sprite = RightSide;
+            m_Renderer.sprite = rightSide;
             m_WhichSide = true;    
         }
     }

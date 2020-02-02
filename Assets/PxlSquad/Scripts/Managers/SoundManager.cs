@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System;
 using PxlSquad;
 
-public class SoundManager : MonoBehaviour {
+public class SoundManager : MonoBehaviour
+{
 
-    public AudioSource musicAudioSource, sfxAudioSource;
+    public AudioSource musicAudioSource, sfxAudioSource, ambienceAudioSource;
     public Dictionary<string, AudioClip> m_AssetsNames;
     public AudioAssets m_PlayerAssets, m_StageAssets, m_OtherAssets;
-    public string currentMusic;
+    public string currentMusic, currentAmbience;
 
     private static SoundManager m_SoundManager;
     private bool m_IsInitialized;
@@ -47,9 +48,13 @@ public class SoundManager : MonoBehaviour {
     private void OnEnable() {
         MessagingManager<string>.RegisterObserver("PlayMusic", playMusic);
         MessagingManager<string>.RegisterObserver("PlaySFX", playSfx);
+        MessagingManager<string>.RegisterObserver("PlayAmbience", playAmbiance);
         MessagingManager.RegisterObserver("StopMusic", stopMusic);
         MessagingManager.RegisterObserver("PauseMusic", pauseMusic);
         MessagingManager.RegisterObserver("UnpauseMusic", unpauseMusic);
+        MessagingManager.RegisterObserver("StopAmbience", stopAmbience);
+        MessagingManager.RegisterObserver("PauseAmbience", pauseAmbience);
+        MessagingManager.RegisterObserver("UnpauseAmbience", unpauseAmbience);
     }
 
     private void OnDisable() {
@@ -58,6 +63,9 @@ public class SoundManager : MonoBehaviour {
         MessagingManager.DeregisterObserver("StopMusic", stopMusic);
         MessagingManager.DeregisterObserver("PauseMusic", pauseMusic);
         MessagingManager.DeregisterObserver("UnpauseMusic", unpauseMusic);
+        MessagingManager.DeregisterObserver("StopAmbience", stopAmbience);
+        MessagingManager.DeregisterObserver("PauseAmbience", pauseAmbience);
+        MessagingManager.DeregisterObserver("UnpauseAmbience", unpauseAmbience);
     }
 
     private void PopulateAssets(AudioAssets assets) {
@@ -104,4 +112,31 @@ public class SoundManager : MonoBehaviour {
     private void unpauseMusic() {
         musicAudioSource.UnPause();
     }
+    
+    private void playAmbiance(string ambiance) {
+        if (ambiance != null) currentAmbience = ambiance;
+        if (m_AssetsNames.ContainsKey(ambiance))
+        {
+            ambienceAudioSource.clip = m_AssetsNames[ambiance];
+            ambienceAudioSource.loop = true;
+            ambienceAudioSource.Play();
+        }
+        else
+        {
+            Debug.Log("no Ambiance found: " + ambiance);
+        }
+    }
+
+    private void stopAmbience() {
+        ambienceAudioSource.Stop();
+    }
+
+    private void pauseAmbience() {
+        ambienceAudioSource.Pause();
+    }
+
+    private void unpauseAmbience() {
+        ambienceAudioSource.UnPause();
+    }
+    
 }

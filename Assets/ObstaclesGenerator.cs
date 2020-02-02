@@ -40,13 +40,13 @@ public class ObstaclesGenerator : MonoBehaviour
     {
         if (UnityEngine.Random.value > 0.5f)
         {
-            Instantiate(springbreakerPrefab, new Vector3(47.2f, -10.33f, 0), Quaternion.identity);
-            Instantiate(springbreakerPrefab, new Vector3(37.2f, -10.33f, 0), Quaternion.identity);
+            Instantiate(springbreakerPrefab, new Vector3(47.2f, -10.33f, 1), Quaternion.identity);
+            Instantiate(springbreakerPrefab, new Vector3(37.2f, -10.33f, 1), Quaternion.identity);
             obstaclesCount = 2;
         }
         else
         {
-            Instantiate(springbreakerPrefab, new Vector3(37.2f, -10.33f, 0), Quaternion.identity);
+            Instantiate(springbreakerPrefab, new Vector3(37.2f, -10.33f, 1), Quaternion.identity);
             obstaclesCount = 1;
         }
     }

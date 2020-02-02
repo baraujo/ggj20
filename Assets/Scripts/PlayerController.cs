@@ -71,9 +71,14 @@ public class PlayerController : MonoBehaviour
         {
             if (m_CurrentWheelController != null)
             {
-                m_CurrentWheelController.repairInProgress = false;
+                if (m_CurrentWheelController.currentPlayer == this)
+                {
+                    m_CurrentWheelController.repairInProgress = false;
+                    m_CurrentWheelController.currentPlayer = null;
+                    m_CurrentWheelController = null;
+                }
             }
-            m_CurrentWheelController = null;
+         
         }
 
         if (other.CompareTag("Lever"))
@@ -132,7 +137,6 @@ public class PlayerController : MonoBehaviour
             m_LeverInUse = true;
         }
     }
-
     private void ProcessWheelAction(bool buttonIsPressed)
     {
         if (buttonIsPressed)

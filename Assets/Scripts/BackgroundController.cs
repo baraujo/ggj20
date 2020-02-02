@@ -6,10 +6,11 @@ using UnityEngine;
 
 public class BackgroundController : MonoBehaviour
 {
+    public float displacement = 0;
+    public float finalDistance = 50.1f;
     private Material m_Material;
-    [SerializeField]
-    private float m_Displacement = 0;
     private float m_LeverSpeed;
+    private bool m_IsRunning = true;
     private static readonly int UvOffset = Shader.PropertyToID("_UVOffset");
 
     private void OnEnable()
@@ -24,8 +25,14 @@ public class BackgroundController : MonoBehaviour
 
     private void Update()
     {
-        m_Displacement += Time.deltaTime * m_LeverSpeed;
-        m_Material.SetFloat(UvOffset, m_Displacement);
+        displacement += Time.deltaTime * m_LeverSpeed;
+        m_Material.SetFloat(UvOffset, displacement);
+
+        if (displacement > finalDistance && m_IsRunning)
+        {
+            MessagingManager.SendMessage("Victory");
+            m_IsRunning = false;
+        }
     }
 
     private void Awake()

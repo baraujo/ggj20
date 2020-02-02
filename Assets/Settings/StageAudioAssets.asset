@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musics:
   - {fileID: 8300000, guid: e4ce106c62cc9e04c84b5875c730e6bd, type: 3}
+  - {fileID: 8300000, guid: 52b9e96167f7d364f89637e3d090a2a9, type: 3}
   soundEffects: []

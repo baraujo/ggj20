@@ -7,16 +7,16 @@ public class Rotate : MonoBehaviour
 {
     public float degressPerSecond = 360f;
 
-    private int m_RotationFactor;
+    private float m_RotationFactor;
     
     private void OnEnable()
     {
-        MessagingManager<int>.RegisterObserver("LeverSpeedUpdated", UpdateRotationSpeed);
+        MessagingManager<float>.RegisterObserver("LeverSpeedUpdated", UpdateRotationSpeed);
     }
     
     private void OnDisable()
     {
-        MessagingManager<int>.DeregisterObserver("LevelSpeedUpdated", UpdateRotationSpeed);
+        MessagingManager<float>.DeregisterObserver("LevelSpeedUpdated", UpdateRotationSpeed);
     }
     
     void Update()
@@ -24,7 +24,7 @@ public class Rotate : MonoBehaviour
         transform.Rotate(0, 0, -degressPerSecond * Time.deltaTime * m_RotationFactor);
     }
     
-    private void UpdateRotationSpeed(int parameter)
+    private void UpdateRotationSpeed(float parameter)
     {
         m_RotationFactor = parameter;
     }

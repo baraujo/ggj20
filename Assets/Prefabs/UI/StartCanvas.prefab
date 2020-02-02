@@ -137,31 +137,31 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Global Game Jam 2020
+  m_text: 'Relocate your house on wheels to a safe place against all the obstacles!
 
-
-    P1 movement: left thumbstick or WASD
 
     P1
-    action: left trigger or space
+    movement: left thumbstick or WASD
 
+    P1 action: left trigger or space
 
-    P2 movement: right thumbstick or arrow keys
 
     P2
-    action: right trigger or right shift
+    movement: right thumbstick or arrow keys
+
+    P2 action: right trigger or right
+    shift
 
 
-    Keep the train running by pumping
-    the central lever and repairing the house whenever something breaks! To repair,
-    grab a metal sheet and take it to where it needs to be repaired
+    Keep the train running by pumping the central lever (press button
+    repeatedly) and repairing the wheels (hold button) whenever one breaks! Try to
+    reach distance 50!
 
 
     Good luck!
 
 
-    Press
-    any action to start'
+    Press any action to start'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -206,7 +206,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 368
+  m_firstOverflowCharacterIndex: 406
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -230,10 +230,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5939134481642510553}
-    characterCount: 394
+    characterCount: 432
     spriteCount: 0
-    spaceCount: 73
-    wordCount: 69
+    spaceCount: 76
+    wordCount: 72
     linkCount: 0
     lineCount: 17
     pageCount: 1
