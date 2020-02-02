@@ -44,7 +44,6 @@ public class GameStateManager : MonoBehaviour
     {
         if (m_GameEnded) return;
         if (!m_IsRunning) return;
-        Debug.Log("Running true!!");
         m_ElapsedTime += Time.deltaTime;
         TimeSpan ts = System.TimeSpan.FromSeconds(m_ElapsedTime);
         uiController.timeText.text = $"Time: {ts.TotalSeconds}";
@@ -68,7 +67,6 @@ public class GameStateManager : MonoBehaviour
         {
             MessagingManager.SendMessage("Victory");
             m_IsRunning = false;
-            Debug.Log("Set running to false");
         }
     }
 
