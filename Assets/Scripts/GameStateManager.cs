@@ -90,7 +90,7 @@ public class GameStateManager : MonoBehaviour
 
     public void StartGame()
     {
-        if (m_IsRunning) return;
+        if (m_IsRunning || m_GameEnded) return;
         uiController.GameStart();
         p1.isRunning = true;
         p2.isRunning = true;
@@ -104,19 +104,20 @@ public class GameStateManager : MonoBehaviour
         p1.isRunning = false;
         p2.isRunning = false;
         m_IsRunning = false;
-        StartCoroutine(GameEndedDelay());
-    }
-
-    private IEnumerator GameEndedDelay()
-    {
-        yield return new WaitForSeconds(3f);
         m_GameEnded = true;
     }
 
     public void RestartGame()
     {
         if (!m_GameEnded) return;
-        //TODO: go to start scene
+        StartCoroutine(RestartGameRoutine());
+    }
+
+    private IEnumerator RestartGameRoutine()
+    {
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Main");
     }
+
+
 }
