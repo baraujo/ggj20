@@ -6,16 +6,19 @@ using UnityEngine;
 
 public class LeverController : MonoBehaviour
 {
-    public int leverSpeed = 0;
-    private int m_LastLeverSpeed = 0;
+    public float leverSpeed = 0;
+    public float actualSpeed = 0;
+    private float m_LastLeverSpeed = 0;
 
     private void Update()
     {
-        if (leverSpeed != m_LastLeverSpeed)
+        if (Math.Abs(leverSpeed - m_LastLeverSpeed) > 0.01f)
         {
             Debug.Log($"New lever speed: {leverSpeed}");
             m_LastLeverSpeed = leverSpeed;
-            MessagingManager<int>.SendMessage("LeverSpeedUpdated", leverSpeed);
         }
+        
+        actualSpeed = Mathf.Lerp(actualSpeed, leverSpeed, 0.01f);
+        MessagingManager<float>.SendMessage("LeverSpeedUpdated", actualSpeed);
     }
 }

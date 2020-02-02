@@ -334,6 +334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5413698966004496291}
   - component: {fileID: 7078166088288819361}
+  - component: {fileID: 9149880537868122097}
   m_Layer: 0
   m_Name: SpringBreaker
   m_TagString: Obstacle
@@ -386,6 +387,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0210712, y: 9.175592}
   m_EdgeRadius: 0
+--- !u!114 &9149880537868122097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7534036623598090695}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423a9bacd6de67b43b8b6bf5aa5fca8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8120010022203581857
 GameObject:
   m_ObjectHideFlags: 0

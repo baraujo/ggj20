@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 4901640744630338319}
   m_Layer: 0
   m_Name: ObstacleTrigger
-  m_TagString: Untagged
+  m_TagString: Wheel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

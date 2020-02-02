@@ -57,7 +57,6 @@ public class PlayerController : MonoBehaviour
             {
                 m_CurrentWheelController.repairInProgress = true;
             }
-
             m_CurrentWheelController = null;
         }
 

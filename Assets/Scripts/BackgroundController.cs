@@ -7,26 +7,34 @@ using UnityEngine;
 public class BackgroundController : MonoBehaviour
 {
     private Material m_Material;
-    private static readonly int ScrollSpeed = Shader.PropertyToID("_ScrollSpeed");
+    [SerializeField]
+    private float m_Displacement = 0;
+    private float m_LeverSpeed;
+    private static readonly int UvOffset = Shader.PropertyToID("_UVOffset");
 
     private void OnEnable()
     {
-        MessagingManager<int>.RegisterObserver("LeverSpeedUpdated", UpdateBackgroundSpeed);
+        MessagingManager<float>.RegisterObserver("LeverSpeedUpdated", UpdateBackgroundSpeed);
     }
 
     private void OnDisable()
     {
-        MessagingManager<int>.DeregisterObserver("LevelSpeedUpdated", UpdateBackgroundSpeed);
+        MessagingManager<float>.DeregisterObserver("LevelSpeedUpdated", UpdateBackgroundSpeed);
     }
 
+    private void Update()
+    {
+        m_Displacement += Time.deltaTime * m_LeverSpeed;
+        m_Material.SetFloat(UvOffset, m_Displacement);
+    }
 
     private void Awake()
     {
         m_Material = GetComponentInChildren<SpriteRenderer>().sharedMaterial;
     }
     
-    private void UpdateBackgroundSpeed(int parameter)
+    private void UpdateBackgroundSpeed(float parameter)
     {
-        m_Material.SetFloat(ScrollSpeed, parameter / 2f);   
+        m_LeverSpeed = parameter;
     }
 }

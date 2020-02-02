@@ -8,16 +8,16 @@ using UnityEngine.Experimental.TerrainAPI;
 public class ObstaclesMovement : MonoBehaviour
 {
     public float baseSpeed;
-    private int m_SpeedFactor;
+    private float m_SpeedFactor;
 
     private void OnEnable()
     {
-        MessagingManager<int>.RegisterObserver("LeverSpeedUpdated", UpdateObstacleSpeed);
+        MessagingManager<float>.RegisterObserver("LeverSpeedUpdated", UpdateObstacleSpeed);
     }
 
     private void OnDisable()
     {
-        MessagingManager<int>.DeregisterObserver("LeverSpeedUpdated", UpdateObstacleSpeed);
+        MessagingManager<float>.DeregisterObserver("LeverSpeedUpdated", UpdateObstacleSpeed);
     }
 
     private void Update()
@@ -25,8 +25,7 @@ public class ObstaclesMovement : MonoBehaviour
         transform.addPositionX(-baseSpeed * m_SpeedFactor * Time.deltaTime);
     }
 
-    private void UpdateObstacleSpeed(int parameter)
-    {
+    private void UpdateObstacleSpeed(float parameter) {
         m_SpeedFactor = parameter;
     }
 }

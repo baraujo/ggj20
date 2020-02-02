@@ -30,4 +30,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _ScrollSpeed: 0
+    - _UVOffset: 42.82867
     m_Colors: []

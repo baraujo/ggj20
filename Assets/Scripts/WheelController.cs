@@ -19,7 +19,7 @@ public class WheelController : MonoBehaviour
     [Range(0f, 100f)]
     public float damagePercentage;
     
-    [SerializeField] private WheelState m_CurrentState;
+    public WheelState m_CurrentState;
 
     public WheelState CurrentState
     {
