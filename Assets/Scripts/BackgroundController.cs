@@ -30,7 +30,6 @@ public class BackgroundController : MonoBehaviour
 
         if (displacement > finalDistance && m_IsRunning)
         {
-            MessagingManager.SendMessage("Victory");
             m_IsRunning = false;
         }
     }

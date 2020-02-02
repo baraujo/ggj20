@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using PxlSquad;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 using Debug = UnityEngine.Debug;
 
 public class GameStateManager : MonoBehaviour
 {
+    public float targetDistance;
+    
     // Players
     public PlayerController p1, p2;
     
@@ -25,6 +24,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Start()
     {
+        background.finalDistance = targetDistance;
         uiController.ShowStart();
     }
 
@@ -42,7 +42,9 @@ public class GameStateManager : MonoBehaviour
 
     private void Update()
     {
-        if (!m_IsRunning || m_GameEnded) return;
+        if (m_GameEnded) return;
+        if (!m_IsRunning) return;
+        Debug.Log("Running true!!");
         m_ElapsedTime += Time.deltaTime;
         TimeSpan ts = System.TimeSpan.FromSeconds(m_ElapsedTime);
         uiController.timeText.text = $"Time: {ts.TotalSeconds}";
@@ -59,11 +61,20 @@ public class GameStateManager : MonoBehaviour
         if(wheelCount == wheels.Length)
         {
             MessagingManager.SendMessage("GameOver");
+            m_IsRunning = false;
+        }
+        
+        if (background.displacement > targetDistance)
+        {
+            MessagingManager.SendMessage("Victory");
+            m_IsRunning = false;
+            Debug.Log("Set running to false");
         }
     }
 
     private void GameOver()
     {
+        if (!m_IsRunning) return;
         Debug.Log("Game over!");
         uiController.ShowGameOver();
         StopGame();
@@ -71,6 +82,7 @@ public class GameStateManager : MonoBehaviour
     
     private void Victory()
     {
+        if (!m_IsRunning) return;
         Debug.Log("Victory!");
         uiController.ShowVictory();
         StopGame();

@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
 
     // Collision data
     private WheelController m_CurrentWheelController = null;
-    private WallController m_CurrentWallController = null;
     private LeverController m_CurrentLeverController = null;
     private bool m_LeverInUse = false;
 
@@ -114,10 +113,6 @@ public class PlayerController : MonoBehaviour
         {
             ProcessWheelAction(button.isPressed);
         }
-        else if (m_CurrentWallController != null)
-        {
-            ProcessWallAction(button.isPressed);
-        }
         else if (m_CurrentLeverController != null)
         {
             ProcessLeverAction(button.isPressed);
@@ -171,9 +166,5 @@ public class PlayerController : MonoBehaviour
                 Debug.Log($"Cannot stop action, Player {m_CurrentWheelController.currentPlayer.name} is inside wheel collider {m_CurrentWheelController.name}");
             }
         }
-    }
-    private void ProcessWallAction(bool buttonIsPressed)
-    {
-        throw new NotImplementedException();
     }
 }
