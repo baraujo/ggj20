@@ -30,5 +30,5 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_D6A9F71C: 1
-    - _Fill: 0.6426668
+    - _Fill: 1
     m_Colors: []
