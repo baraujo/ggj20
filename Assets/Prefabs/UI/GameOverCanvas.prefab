@@ -140,7 +140,8 @@ MonoBehaviour:
   m_text: 'Game over!
 
 
-    Press any action to restart'
+    Your house is stuck in the middle of the road and the
+    repairs will take a long time.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -209,12 +210,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 5939134481642510553}
-    characterCount: 39
+    characterCount: 96
     spriteCount: 0
-    spaceCount: 7
-    wordCount: 7
+    spaceCount: 20
+    wordCount: 20
     linkCount: 0
-    lineCount: 3
+    lineCount: 4
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

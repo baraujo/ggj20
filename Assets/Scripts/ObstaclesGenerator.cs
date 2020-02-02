@@ -14,6 +14,7 @@ public class ObstaclesGenerator : MonoBehaviour
     public void Start()
     {
         ResetTimer();
+        obstaclesCount = 0;
     }
 
     private void ResetTimer()

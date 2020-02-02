@@ -78,6 +78,7 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Game over!");
         uiController.ShowGameOver();
         StopGame();
+        RestartGame();
     }
     
     private void Victory()
@@ -86,6 +87,7 @@ public class GameStateManager : MonoBehaviour
         Debug.Log("Victory!");
         uiController.ShowVictory();
         StopGame();
+        RestartGame();
     }
 
     public void StartGame()
@@ -115,9 +117,7 @@ public class GameStateManager : MonoBehaviour
 
     private IEnumerator RestartGameRoutine()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         SceneManager.LoadScene("Main");
     }
-
-
 }

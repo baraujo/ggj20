@@ -710,36 +710,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 240852396709939322, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240852396709939322, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240852396709939322, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240852396709939322, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 240852396709939322, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2069869829652298270, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2069869830499431376, guid: d92956c5606df3645bafcf509b62f350,
         type: 3}
       propertyPath: m_Name
@@ -798,56 +768,6 @@ PrefabInstance:
     - target: {fileID: 2069869830499431377, guid: d92956c5606df3645bafcf509b62f350,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066827470008282097, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066827470008282097, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066827470008282097, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066827470008282097, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8066827470008282097, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8390112403178029887, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8390112403178029887, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8390112403178029887, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8390112403178029887, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8390112403178029887, guid: d92956c5606df3645bafcf509b62f350,
-        type: 3}
-      propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -3095,6 +3015,12 @@ PrefabInstance:
       propertyPath: finalDistance
       value: 50.1
       objectReference: {fileID: 0}
+    - target: {fileID: 5656063637350120788, guid: bb671d8c9b59bab45ab76b3af541a51a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: da9e381733d84ad4ba3ad812c3e3a718,
+        type: 3}
     - target: {fileID: 5656063638379672660, guid: bb671d8c9b59bab45ab76b3af541a51a,
         type: 3}
       propertyPath: m_LocalPosition.x
