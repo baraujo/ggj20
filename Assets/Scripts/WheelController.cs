@@ -12,15 +12,18 @@ public class WheelController : MonoBehaviour
     
     [HideInInspector]
     public PlayerController currentPlayer;
-    public GameObject intactSprite, damagedSprite, wrenchSprite;
+
+    public GameObject intactSprite;
+    public GameObject damagedSprite;
+    public GameObject wrenchSprite;
+    
     public float repairRate;
     public bool repairInProgress;
     
     [Range(0f, 100f)]
     public float damagePercentage;
     
-    public WheelState m_CurrentState;
-
+    private WheelState m_CurrentState;
     public WheelState CurrentState
     {
         get => m_CurrentState;
@@ -66,7 +69,6 @@ public class WheelController : MonoBehaviour
         {
             wrenchSprite.SetActive(false);
         }
-        
     }
 
     private void PerformRepair(float repairAmount)
