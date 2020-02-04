@@ -19,6 +19,7 @@ public class GameStateManager : MonoBehaviour
     public UIController uiController;
     public BackgroundController background;
     public float m_ElapsedTime = 0;
+    public float m_MinimumTimeToStart = 0;
 
     private bool m_IsRunning, m_GameEnded = false;
 
@@ -42,6 +43,7 @@ public class GameStateManager : MonoBehaviour
 
     private void Update()
     {
+        m_MinimumTimeToStart += Time.deltaTime;
         if (m_GameEnded) return;
         if (!m_IsRunning) return;
         m_ElapsedTime += Time.deltaTime;
@@ -91,6 +93,7 @@ public class GameStateManager : MonoBehaviour
     public void StartGame()
     {
         if (m_IsRunning || m_GameEnded) return;
+        if(m_MinimumTimeToStart < 1.5f) return;
         uiController.GameStart();
         p1.isRunning = true;
         p2.isRunning = true;
